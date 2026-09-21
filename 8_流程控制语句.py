@@ -108,7 +108,7 @@ match name:
 #   - 必须有"使条件趋向为假"的代码，否则会死循环。
 #   - 常配合 else：当循环"正常结束"（非 break 结束）时执行 else 块。
 # 【举个例子】
-count = 1
+count = int(input("请输入count值："))
 total = 0
 while count <= 5:
     total += count
@@ -142,15 +142,20 @@ else:
 # 【举个例子】
 # 遍历 range
 for i in range(1, 6):
-    print("range 遍历 i =", i)
+    print("range 遍历 i =", i) 
+
+# 遍历字符串
+msg = "我是东风谷早苗"
+for i in msg:
+    print(i)
 
 # 遍历列表
-fruits = ["苹果", "香蕉", "橙子"]
-for fruit in fruits:
-    print("水果：", fruit)
+character = ["以撒", "夏娃", "阿萨泻勒"]
+for name in character:
+    print("角色：", name)
 
 # 遍历字典的键值对
-person = {"name": "小明", "age": 18}
+person = {"name": "八云紫", "age": 1145141919810}
 for key, value in person.items():
     print(f"{key} -> {value}")
 
@@ -198,6 +203,14 @@ for i in range(3):
 #   3. break / continue 只作用于"最内层"循环，多重循环中要跳出需用标志位或函数返回。
 #   4. pass 不是注释，它是真正执行的空语句，常用于函数/类/分支占位。
 
+
+
+# while 与 for 的使用场景
+# while 用于在某个特定条件满足时一直循环，循环的次数通常是未知的，只知道循环开始、结束的条件（关注的是循环的条件）
+# for 用于对一个已知数据集进行遍历，或已知循环次数的循环（关注的是遍历每一个元素）
+
+
+
 # 循环的嵌套（Nested Loops）
 # 在一个循环内部再写另一个循环，形成嵌套结构，常用于二维数据处理。
 # 关键语法点：
@@ -208,12 +221,38 @@ for i in range(3):
 for i in range(1, 4):          # 外层：行
     for j in range(1, 4):      # 内层：列
         print(f"{i} * {j} = {i * j}", end="\t")
-    print()   # 每行结束后换行
+    print()   # 每行结束后换行，空字符串会被定义为\n，即换行符
 
 # 【注意事项】
 #   1. 嵌套层数过多会降低可读性与性能，一般不超过 3 层。
 #   2. 跳出外层循环需借助标志变量、函数 return 或异常。
 #   3. 注意内层循环的循环变量与外层不要重名，避免混淆。
+
+
+
+
+
+
+
+
+
+
+# 【补充】
+# range语句
+# range语句用于生成指定规则的数字序列
+
+# 用法1：range(end)  获取一个从0开始，到end结束的数字序列（不包括end本身）
+# range(5)  获取数据：0，1，2，3，4
+
+# 用法2：range(start,end)  获取一个从start开始，到end结束的数字序列（不包含end本身）
+# range(2,10)  获取数据：2，3，4，5，6，7，8，9
+
+# 用法3：range(start,end,step)  获取一个从start开始，到end结束的数字序列，step步长（不包含end本身）
+# range(2,12,3)  获取数据：2，5，8，11
+
+
+
+
 
 # 【拓展】循环控制与可迭代协议
 # Python 的 for 循环底层依赖"可迭代协议"（__iter__ / __next__）。
