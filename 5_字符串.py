@@ -89,3 +89,4 @@ print("通过format()方法格式化：" + introduction3)
 #还有一种方法是用f"字符串"来实现格式化，f""表示格式化字符串，{}中可以直接放变量。
 introduction4 = f"大家好，我是{name}，我今年{age}岁，我的能力是{ability}，我的爱好是{hobby}。"
 print("通过f-string格式化：" + introduction4)
+#
