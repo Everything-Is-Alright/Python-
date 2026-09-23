@@ -1,0 +1,15 @@
+#设置指定值
+answer = 7
+
+#邀请玩家猜测
+num = int(input("请输入您猜测的数字："))
+
+#进行判断和提示
+while answer != num:
+    if answer > num:
+        print("您猜测的数字比答案小！")
+    if answer < num:
+        print("您猜测的数字比答案大！")
+    num = int(input("请输入您新猜测的数字："))
+else:
+    print("您猜对了！答案是7！")

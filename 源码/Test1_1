@@ -1,0 +1,23 @@
+#输入
+num1 = int( input("请输入第一个整数："))
+num2 = int( input("请输入第一个整数："))
+
+#加法
+num3 = num1 + num2
+print(f"两数之和为{num3}")
+
+#减法
+num4 = num1 - num2
+print(f"两数之差为{num4}")
+
+#乘法
+num5 = num1 * num2
+print(f"两数之积为{num5}")
+
+#除法
+num6 = num1 / num2
+print(f"两数之和为{num6}")
+
+#整除
+num7 = num1 // num2
+print(f"两数整除结果为{num7}")

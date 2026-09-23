@@ -81,9 +81,14 @@ character.sort()
 for i in character:
     print(i)
 print("---------------------------------------")
+print("对列表元素进行排序,并返回一个新的已排序列表")
+newCharacter = sorted(character)
+for i in newCharacter:
+    print(i)
+print("---------------------------------------")
 # 反转列表元素
 print("对列表进行反转")
-character.sort()
+character.reverse()
 for i in character:
     print(i)
 print("---------------------------------------")

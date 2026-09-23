@@ -1,0 +1,27 @@
+#定义列表
+scores = [78, 92, 65, 88, 92]
+
+#在末尾插入一个新的分数100
+scores.append(100)
+
+#在下标为1的位置插入分数85
+scores.insert(1, 85)
+
+#删除列表中第一个92，并弹出下表2的元素
+scores.remove(92)
+scores.pop(2)
+
+print("处理后的列表为：")
+for i in scores:
+    print(i)
+
+print("---------------------------------")
+print("列表的长度为：" + str(len(scores)))
+
+print("---------------------------------")
+print(scores[1:4])
+
+print("---------------------------------")
+newScores = sorted(scores)
+for j in newScores:
+    print(j)
