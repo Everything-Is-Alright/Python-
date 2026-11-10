@@ -76,3 +76,94 @@ def reg2(name, age, home):
 # 注意，混用位置参数和关键字参数时，必须先用位置参数，后用关键字参数。关键字参数之间没有顺序要求。
 stu2 = reg2("因幡帝",home="迷途竹林",age=15)
 print(stu2)
+
+# 默认参数
+# 默认函数也称为缺省函数，调用函数时，如果没有传入参数，则使用默认参数的值
+print("---------------------------------------")
+def reg3(name, age=18, home="妖怪之山"):
+# 这里指定了age和home的默认值，如果调用函数时没有传入这两个参数，则使用默认值
+    print(f"你的名字是{name}，年龄是{age}，家住在{home}。")
+    return{"name": name, "age": age, "home":home}
+# 调用函数时，可以不传入所有参数，未传入的参数将使用默认值
+stu3 = reg3("射命丸文")
+print(stu3)
+# 注意，默认参数必须放在位置参数的后面，否则会报错
+
+# 不定长参数
+# 不定长参数是指，函数定义时，参数的个数不确定，可以传入任意个数的参数。分为两种：不定长位置参数和不定长关键字参数。
+print("---------------------------------------")
+
+# 不定长位置参数
+def reg4(name, *args):
+    print(f"你的名字是{name}，其他信息为{args}。")
+    return{"name": name, "other_info": args}
+# 调用函数时，可以传入任意个数的参数，未传入的参数将使用默认值
+stu4 = reg4("古明地觉", 17, "地灵殿","读心")
+print(stu4)
+# 注意：传递的所有匹配的位置参数都会被收集到args中，形成一个元组。args是元组类型，只会封装位置参数，不会封装关键字参数。
+# args只是约定俗成的变量名，你也可以使用其他名字，但不建议这样做，因为会影响代码的可读性。
+# 可以通过元组的函数对args进行操作，如len(args)获取参数个数，max(args)获取最大值，min(args)获取最小值等。
+
+# 不定长关键字参数
+print("---------------------------------------")
+def reg5(name, **kwargs):
+    print(f"你的名字是{name}，其他信息为{kwargs}。")
+    return{"name": name, "other_info": kwargs}
+# 调用函数时，可以传入任意个数的关键字参数，未传入的参数将使用默认值
+stu5 = reg5("伊吹萃香", age=17, home="博丽神社", hobby="操纵密度程度")
+print(stu5)
+# 注意：传递的所有匹配的关键字参数都会被收集到kwargs中，形成一个字典。kwargs是字典类型，只会封装关键字参数，不会封装位置参数。
+# 同样，kwargs只是约定俗成的变量名，你也可以使用其他名字，但也不建议这样做，因为会影响代码的可读性。
+# 可以通过字典的函数对kwargs进行操作，如len(kwargs)获取参数个数，max(kwargs.values())获取最大值，min(kwargs.values())获取最小值等。
+
+# 运用场景
+# *args适用于处理数量不确定的参数，如计算多个数的和、求最大值等。
+# **kwargs适用于处理数量不确定的选项，如函数的配置参数、
+# 举个例子
+# 核心数据：你要什么，什么就是核心数据
+# 买fomo("fomo")
+# 选项：你要什么样的fomo，选项就是你要的fomo的属性
+# 买fomo("fomo", character="琪露诺", color="red", size="large", price=100)
+
+# 混合使用举例
+print("---------------------------------------")
+def reg6(name, age, *args, **kwargs):
+    print(f"你的名字是{name}，年龄是{age}，其他信息为{args}，其他选项为{kwargs}。")
+    return{"name": name, "age": age, "other_info": args, "other_options": kwargs}
+stu6 = reg6("森近霖之助", 30, "人里", "看一眼就能知道道具的名称和用途", hobby="收集物品", skill="香霖堂的店主")
+print(stu6)
+
+# 参数类型
+# 普通参数：数字、布尔、字符串、列表、元组、集合、字典等
+# 特殊参数：函数
+print("---------------------------------------")
+def add(x, y):
+    return x + y
+def sub(x, y):
+    return x - y
+def calc(x, y, func):
+    return func(x, y)
+result1 = calc(3, 5, add)
+result2 = calc(3, 5, sub)
+print(f"调用add函数的结果是：{result1}")          # 8
+print(f"调用sub函数的结果是：{result2}")          # -2
+
+
+
+# 匿名函数
+# 我们上面所说的函数都是有名字的函数。
+# 匿名函数是指没有名字的函数，也叫lambda函数，需要通过lambda表达式来声明函数们，可以简化简单函数的书写。
+# 匿名函数的语法格式为：
+# lambda 参数1, 参数2, ... : 函数体
+# 函数体只能是一个单行表达式，不能包含其他语句。
+# 匿名函数可以作为参数传递给其他函数，也可以作为返回值返回。
+print("---------------------------------------")
+lambda : print("这是一个匿名函数")  # 这是一个匿名函数
+lambda x, y : x + y  # 这是一个匿名函数，接收两个参数，自动返回它们的和而不需要return语句
+
+# 单纯定义一个匿名函数没有意义，我们需要将它赋值给一个变量，或者直接调用它。
+# 赋值给变量
+lambda_print = lambda : print("这是一个匿名函数")
+lambda_add = lambda x, y : x + y
+lambda_print()
+print(lambda_add(3, 5))
