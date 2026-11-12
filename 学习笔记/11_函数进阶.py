@@ -167,3 +167,35 @@ lambda_print = lambda : print("这是一个匿名函数")
 lambda_add = lambda x, y : x + y
 lambda_print()
 print(lambda_add(3, 5))
+
+# 举个例子
+# 对于字符串的排序，是按照字母顺序进行排序的，如果我们想要按照字符串的长度进行排序，就可以使用匿名函数作为key参数传递给sorted()函数。
+print("---------------------------------------")
+name_list = ["铃仙", "八云紫", "古明地觉", "因幡帝", "射命丸文", "伊吹萃香", "森近霖之助"]
+# 字符串自带的排序方法sort()，默认是按照字母顺序进行排序的
+name_list.sort()
+print("默认排序后的结果为：",name_list)
+# 如果我们想要按照字符串的长度进行排序，就可以使用匿名函数作为key参数传递给sort()函数。
+# sort方法支持key参数，key参数的值是一个函数，这个函数接收一个参数，返回一个值，sort方法会根据这个返回值进行排序。
+# 对于这个函数，我们可以使用匿名函数来定义它，lambda x: len(x)表示接收一个参数x，返回它的长度len(x)。
+name_list.sort(key=lambda x: len(x))        # 按照字符串长度进行排序
+print("按照字符串长度排序后的结果为：",name_list)
+# 除此之外，我们也可以反过来排序。
+# sort方法支持reverse参数，reverse参数的值是一个布尔值，表示是否反转排序结果，默认值为False，表示不反转。
+name_list.sort(key=lambda x: len(x), reverse=True)        # 按照字符串长度进行排序，并且反转排序结果
+print("按照字符串长度反转排序后的结果为：",name_list)
+
+
+
+# 递归
+# 递归是指函数在函数体内调用自身的编程技巧。
+# 递归函数必须有一个明确的结束条件，否则会无限调用自身，导致栈溢出。
+# 举个例子，让我们来写一个递归函数，计算阶乘。
+print("---------------------------------------")
+def factorial(n):
+# 递归函数必须有一个明确的结束条件，否则会无限调用自身，导致栈溢出。
+    if n == 1:
+        return 1
+    else:
+        return n * factorial(n - 1)
+print(factorial(5))
