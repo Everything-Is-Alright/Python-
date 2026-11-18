@@ -38,6 +38,10 @@ class Troop:
 nurglings = Troop("纳垢灵", 8400, 60)
 peasant_archers = Troop("役农弓手", 6480, 120)
 
+# 这种情况下打印两个实例，就会显示其定义的具体信息，而非地址
+print(nurglings)
+print(peasant_archers)
+
 # 如果想要对比两个单位，直接使用==是不行的，因为这样对比的仅仅是地址
 print(f"两个单位地址对比：{nurglings == peasant_archers}")
 print("----------------------------------------")
