@@ -53,3 +53,28 @@ nyarlathotep.show_type()
 
 marisa.need()
 nyarlathotep.need()
+
+# 多继承
+# 在python中，一个子类可以同时继承多个父类，一个父类也可以被多个子类继承
+# 多继承就是指一个子类同时继承了多个父类的情况，这回让子类将多个父类中的非私有属性和方法都会继承下来。
+class Ghost:
+    def __init__(self, g_name, g_hp, g_hobby):
+            self.name = g_name
+            self.hp = g_hp
+            self.hobby = g_hobby
+
+    def show_type(self):
+        print(f"{self.name}是一名幽灵！")
+
+# 假设某类人既有Human又有Ghost的属性和功能，就可以使用多继承
+# 不过这也引申出一个问题：如果多个父类有同名的属性或方法，会如何调用呢
+# 可以使用 类名.__mro__.属性 或 类名.mro() 方法查看调用顺序
+class Youmu(Human, Ghost):
+    pass
+
+youmu = Youmu("youmu", 120, "太刀")
+youmu.show_type()
+# 看来youmu是一位人类
+# 按照“方法解析顺序”(MRO原则)，会先运行第一个父类中的方法
+
+# 如果我们想让youmu调用Ghost类中的方法，我们可以直接在类中进行重写，在重写里使用你需要的方法。
